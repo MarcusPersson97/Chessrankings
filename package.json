@@ -1,0 +1,25 @@
+{
+  "name": "chessrankings",
+  "version": "1.0.0",
+  "description": "A website displaying the top rated players in the chess world.",
+  "homepage": "https://github.com/MarcusPersson97/Chessrankings#readme",
+  "bugs": {
+    "url": "https://github.com/MarcusPersson97/Chessrankings/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcusPersson97/Chessrankings.git"
+  },
+  "license": "ISC",
+  "author": "Marcus Persson",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
