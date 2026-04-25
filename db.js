@@ -1,31 +1,16 @@
-import { MongoClient } from "mongodb";
-
-const ConnectionString = process.env.CONNSTRING;
-const client = new MongoClient(ConnectionString);
- 
-export async function RunDb(){
-
-try {
-    
-    await client.connect();
-    console.log('DB Connection established');   
-    
-        
-} 
-
-catch (error) {
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 
+async function RunDb(){
 
+    mongoose.connect(process.env.CONNSTRING)
+    .then(() => console.log("Connected with Mongoose"))
+    .catch(err => console.error(err));
     
 }
 
-finally{
-
-    client.close();
-
-}
+RunDb();
 
 
-}
-
+module.exports = {RunDb};
