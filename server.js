@@ -1,4 +1,12 @@
 require('dotenv').config();
+const DbConnection = require("./db");
+
+DbConnection.RunDb();
+
+process.on("SIGINT", async () => {
+  await DbConnection.CloseDb();
+  process.exit(0);
+});
 
 const express = require('express');
 const app = express();
