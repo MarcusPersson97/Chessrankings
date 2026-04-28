@@ -1,6 +1,7 @@
 require('dotenv').config();
 const DbConnection = require("./db");
 
+
 DbConnection.RunDb();
 
 process.on("SIGINT", async () => {
@@ -10,6 +11,7 @@ process.on("SIGINT", async () => {
 
 const express = require('express');
 const app = express();
+const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
@@ -21,7 +23,9 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello world');
 });
 
-
+app.get('/api/players', async (req, res) =>{
+  
+})
 
 
 app.listen(port, () => {

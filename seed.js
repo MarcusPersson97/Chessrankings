@@ -1,4 +1,4 @@
-const player = require("./player");
+const player = require("./playerSchema");
 const mongoose = require("mongoose");
 const DbConnection = require("./db");
 
