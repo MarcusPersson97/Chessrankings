@@ -5,7 +5,7 @@ async function getPlayers(){
     
     const players = await playerSchema.find();
     return players;
-
+    
 
 }
 

@@ -15,3 +15,5 @@ async function getPlayers(req, res){
     
 
 }
+
+module.exports = {getPlayers};
