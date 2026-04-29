@@ -5,8 +5,18 @@ async function getPlayers(){
     
     const players = await playerSchema.find();
     return players;
-    
+
 
 }
 
-module.exports = {getPlayers};
+async function createPlayer(player){
+
+    return await playerSchema.create(player);
+
+}
+
+
+
+
+
+module.exports = {getPlayers, createPlayer};
