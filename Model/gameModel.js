@@ -18,9 +18,7 @@ async function createGame(gameData) {
 
 async function getGames(){
 
-
-
-
+  return await Game.find().populate("whitePlayerId").populate("blackPlayerId");
 
 }
 

@@ -62,12 +62,23 @@ async function createGame(req, res) {
 
 
 
-async function getGames(req, res){
 
 
+async function getGames(req, res) {
+  try {
+    const games = await gameModel.getGames();
 
+    res.status(200).json(games);
 
+  } catch (err) {
+    console.error(err);
 
+    res.status(500).json({
+      error: "Server error"
+    });
+  }
 }
+
+
 
 module.exports = {createGame, getGames};
