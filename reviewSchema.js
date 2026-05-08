@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const reviewSchema = new mongoose.Schema({
   playerId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Players",
+    ref: "Player",
     required: true
   },
   author: {
