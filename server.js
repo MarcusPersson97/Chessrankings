@@ -1,6 +1,8 @@
 require('dotenv').config();
 const DbConnection = require("./db");
 const playerRouter = require("./routes/playerRoutes");
+const gameRouter = require("./routes/gameRoutes");
+
 
 DbConnection.RunDb();
 
@@ -17,7 +19,7 @@ const port = process.env.PORT || 3000;
 
 
 app.use('/api/players', playerRouter);
-
+app.use('/api/games', gameRouter);
 
 
 
