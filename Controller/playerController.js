@@ -49,7 +49,7 @@ async function getPlayers(req, res){
     }
 
     async function getPlayerById(req, res){
-
+        
         const {id} = req.params;
         if(!mongoose.Types.ObjectId.isValid(id)){
             return res.status(400).json({message: "Invalid player id"});

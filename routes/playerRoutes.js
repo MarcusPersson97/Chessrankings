@@ -7,3 +7,5 @@ router.get('/:id', playerController.getPlayerById);
 router.post('/', playerController.createPlayer);
 router.delete('/:id', playerController.deletePlayer);
 router.patch('/:id', playerController.updatePlayer);
+
+module.exports = router;

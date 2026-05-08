@@ -12,7 +12,7 @@ async function getPlayers(){
 }
 
 async function createPlayer(player){
-
+    
     return await playerSchema.create(player);
 
 }
@@ -32,6 +32,12 @@ async function deletePlayer(id){
 
 }
 
+async function updatePlayer(id){
 
 
-module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById};
+
+
+}
+
+
+module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById, updatePlayer};
