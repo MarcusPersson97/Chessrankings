@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 const playerSchema = require("../playerSchema");
 const gameSchema = require('../gameSchema');
-
+const reviewSchema = require('../reviewSchema');
 
 async function getPlayers(filter){
     
     const players = await playerSchema.find(filter);
     return players;
+
     
-
-
 }
 
 async function createPlayer(player){
@@ -50,4 +49,11 @@ async function getGamesFromId(id){
 
 }
 
-module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById, updatePlayer, getGamesFromId};
+async function getReviewsById(id){
+
+    return await reviewSchema.find(id);
+
+
+}
+
+module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById, updatePlayer, getGamesFromId, getReviewsById};

@@ -8,6 +8,6 @@ router.post('/', playerController.createPlayer);
 router.delete('/:id', playerController.deletePlayer);
 router.patch('/:id', playerController.updatePlayer);
 router.get('/:id/games', playerController.getGamesFromId);
-
+router.get('/:id/reviews')
 
 module.exports = router;

@@ -162,13 +162,13 @@ async function getPlayers(req, res){
 
     async function getGamesFromId(req, res){
 
-        const id = req.params;
+        const id = req.params.id;
 
         if(!id){
             return res.status(400).json({message: "id is in incorrect format", id});
         }
 
-        const playerExists = !playerModel.findPlayerById();
+        const playerExists = await playerModel.findPlayerById();
 
         if(!playerExists){
             return res.status(404).json({message: "A player with that id does not exist"});
@@ -189,4 +189,31 @@ async function getPlayers(req, res){
         
     }
 
-module.exports = {getPlayers, createPlayer, deletePlayer, updatePlayer, getPlayerById, getGamesFromId};
+    async function getReviewsById(req, res){
+
+        const id = req.params.id;
+        if(!id){
+
+            return res.status(400).json({message: "incorrect id format"});
+
+        }
+
+        const playerExists = await playerModel.getPlayerById(id);
+        if(!playerExists){
+
+            return res.status(404).json({message: "A player with that id does not exist"});
+
+        }   
+
+        try {
+            const playerReviews = await playerModel.getReviewsById(id);
+        } 
+        
+        catch (error) {
+            return res.status(500).json({message: "Server error"})
+        }
+
+    }
+
+
+module.exports = {getPlayers, createPlayer, deletePlayer, updatePlayer, getPlayerById, getGamesFromId, getReviewsById};
