@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
-const playerSchema = require("./playerSchema.js");
+const playerSchema = require("../playerSchema");
+const gameSchema = require('../gameSchema');
 
 
-
-async function getPlayers(){
+async function getPlayers(filter){
     
-    const players = await playerSchema.find();
+    const players = await playerSchema.find(filter);
     return players;
+    
 
 
 }
@@ -34,10 +35,19 @@ async function deletePlayer(id){
 
 async function updatePlayer(id){
 
-
+    
 
 
 }
 
+async function getGamesFromId(id){
 
-module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById, updatePlayer};
+    return await gameSchema.find({ $or:[
+    { whitePlayerId: playerId },
+    { blackPlayerId: playerId }
+  ]})
+
+
+}
+
+module.exports = {getPlayers, createPlayer, deletePlayer, getPlayerById, updatePlayer, getGamesFromId};

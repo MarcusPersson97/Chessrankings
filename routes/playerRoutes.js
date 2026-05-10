@@ -7,5 +7,7 @@ router.get('/:id', playerController.getPlayerById);
 router.post('/', playerController.createPlayer);
 router.delete('/:id', playerController.deletePlayer);
 router.patch('/:id', playerController.updatePlayer);
+router.get('/:id/games', playerController.getGamesFromId);
+
 
 module.exports = router;

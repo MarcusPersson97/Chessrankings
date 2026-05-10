@@ -3,9 +3,17 @@ const mongoose = require("mongoose");
 
 async function getPlayers(req, res){
 
+    const filter = {};
+
+    const {country} = req.query;
+    if(country){
+
+        filter.country = country;
+
+    }
 
     try {
-        const playerdata = await playerModel.getPlayers();
+        const playerdata = await playerModel.getPlayers(filter);
         return res.status(200).json(playerdata);
     } 
     
@@ -150,6 +158,35 @@ async function getPlayers(req, res){
         console.error(error);
         return res.status(500).json({ message: "Server error" });
     }
-}
+    }
 
-module.exports = {getPlayers, createPlayer, deletePlayer, updatePlayer, getPlayerById};
+    async function getGamesFromId(req, res){
+
+        const id = req.params;
+
+        if(!id){
+            return res.status(400).json({message: "id is in incorrect format", id});
+        }
+
+        const playerExists = !playerModel.findPlayerById();
+
+        if(!playerExists){
+            return res.status(404).json({message: "A player with that id does not exist"});
+        }
+
+        try{
+            const games = await playerModel.getGamesFromId(id);
+            return res.status(200).json({message: "here are all the games played by this player", games});
+
+        }
+
+        catch(err){
+            return res.status(500).json({message: "Server error"});
+        }
+
+        
+
+        
+    }
+
+module.exports = {getPlayers, createPlayer, deletePlayer, updatePlayer, getPlayerById, getGamesFromId};
