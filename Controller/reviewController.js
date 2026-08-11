@@ -65,5 +65,28 @@ async function getReviews(req, res) {
   }
 }
 
+async function getReview(req, res) {
 
-module.exports = {createReview, getReviews};
+  try {
+    
+    const id = number(req.params.id);
+
+    if(!id){
+      return res.status(400).json({message: "incorrect id format"});
+    }
+
+    const review = await reviewModel.getReview(id);
+    
+    return res.status(200).json({message: "successfully retrieved review", review})
+    
+  } 
+  
+  
+  catch (error) {
+    return res.status(500).json({message: "Server error"});
+  }
+  
+
+}
+
+module.exports = {createReview, getReviews, getReview};

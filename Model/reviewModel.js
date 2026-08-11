@@ -14,4 +14,10 @@ async function getAllReviews() {
     
 }
 
-module.exports = {createReview, getReviews};
+async function getReview(id){
+
+  return await reviewSchema.find(id);
+
+}
+
+module.exports = {createReview, getAllReviews, getReview};
