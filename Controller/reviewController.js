@@ -77,8 +77,8 @@ async function getReview(req, res) {
 
     const review = await reviewModel.getReview(id);
     
-    return res.status(200).json({message: "successfully retrieved review", review})
-    
+    return res.status(200).json({message: "successfully retrieved review", review});
+
   } 
   
   
