@@ -44,6 +44,7 @@ function App() {
                 players={players}
                 loading={loading}
                 error={error}
+                fetchPlayers={fetchPlayers}
             />
             <PlayerForm fetchPlayers={fetchPlayers} />
         </div>

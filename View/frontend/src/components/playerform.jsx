@@ -34,6 +34,13 @@ function PlayerForm({ fetchPlayers }) {
         
         if(response.ok){
            await fetchPlayers();
+
+            setName("");
+            setRating("");
+            setCountry("");
+            setTitle("");
+            setPeakRating("");
+            setStyle("");
         }
 
     }

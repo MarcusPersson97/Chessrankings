@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PlayerRow from "./playerrow";
 
-function PlayerList({players, loading, error}) {
+function PlayerList({players, loading, error, fetchPlayers}) {
     
     return (
     <div>
@@ -17,6 +17,7 @@ function PlayerList({players, loading, error}) {
                     key={player._id}
                     player={player}
                     rank={index + 1}
+                    fetchPlayers={fetchPlayers}
                 />
             ))
         )}

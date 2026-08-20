@@ -97,7 +97,7 @@ async function getPlayers(req, res){
 
         let playerExists;
         try {
-            playerExists = await playerModel.findPlayerById(id);
+            playerExists = await playerModel.getPlayerById(id);
         }
         
         catch (error) {

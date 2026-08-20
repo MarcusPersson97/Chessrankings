@@ -1,4 +1,6 @@
-function PlayerRow({ player, rank }) {
+import DeleteButton from "./deletebutton";
+
+function PlayerRow({ player, rank, fetchPlayers }) {
     return (
         <div>
             <span>{rank}</span>
@@ -8,6 +10,10 @@ function PlayerRow({ player, rank }) {
             <span>{player.rating}</span>
             <span>{player.peakRating}</span>
             <span>{player.style}</span>
+            <DeleteButton
+            playerId={player._id}
+            fetchPlayers={fetchPlayers}
+            />
         </div>
     );
 }
