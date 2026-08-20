@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PlayerList from "./components/playerlist";
+import PlayerForm from "./components/playerform";
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
                 loading={loading}
                 error={error}
             />
+            <PlayerForm fetchPlayers={fetchPlayers} />
         </div>
     );
 }
