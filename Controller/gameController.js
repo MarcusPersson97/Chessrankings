@@ -60,7 +60,28 @@ async function createGame(req, res) {
 }
 
 
+async function getGamesForPlayer(req, res) {
+    try {
+        const { id } = req.params;
 
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({
+                error: "Invalid player id"
+            });
+        }
+
+        const games = await gameModel.getGamesForPlayer(id);
+
+        res.status(200).json(games);
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            error: "Server error"
+        });
+    }
+}
 
 
 
@@ -81,4 +102,4 @@ async function getGames(req, res) {
 
 
 
-module.exports = {createGame, getGames};
+module.exports = {createGame, getGames, getGamesForPlayer};

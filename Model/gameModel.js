@@ -12,7 +12,14 @@ async function createGame(gameData) {
 }
 
 
-
+async function getGamesForPlayer(id) {
+    return await gameSchema.find({
+        $or: [
+            { whitePlayerId: id },
+            { blackPlayerId: id }
+        ]
+    });
+}
 
 
 
@@ -22,4 +29,4 @@ async function getGames(){
 
 }
 
-module.exports = {createGame, getGames};
+module.exports = {createGame, getGames, getGamesForPlayer};
