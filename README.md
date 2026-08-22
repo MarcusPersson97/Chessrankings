@@ -13,3 +13,4 @@ Run "npm install"
 create a .env file and add the appropriate credentials
 Run "npm run dev" to launch the frontend
 and then open your browser on the correct port to have the frontend be displayed.
+

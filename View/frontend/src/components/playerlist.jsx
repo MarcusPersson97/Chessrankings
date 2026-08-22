@@ -8,7 +8,7 @@ function PlayerList({players, loading, error, fetchPlayers}) {
     const filteredPlayers = players.filter(player =>
     player.name.toLowerCase().includes(search.toLowerCase())
     );
-
+    
     return (
     <div>
         <h2>Chess Rankings</h2>
