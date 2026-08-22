@@ -46,6 +46,28 @@ async function createReview(req, res) {
   }
 }
 
+async function getReviewsForPlayer(req, res) {
+    try {
+        const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({
+                error: "Invalid player id"
+            });
+        }
+
+        const reviews = await reviewModel.getReviewsForPlayer(id);
+
+        res.status(200).json(reviews);
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(500).json({
+            error: "Server error"
+        });
+    }
+}
 
 async function getReviews(req, res) {
 
@@ -89,4 +111,4 @@ async function getReview(req, res) {
 
 }
 
-module.exports = {createReview, getReviews, getReview};
+module.exports = {createReview, getReviews, getReview, getReviewsForPlayer};

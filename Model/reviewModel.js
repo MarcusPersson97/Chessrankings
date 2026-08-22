@@ -14,10 +14,14 @@ async function getAllReviews() {
     
 }
 
+async function getReviewsForPlayer(id) {
+    return await reviewSchema.find({ playerId: id });
+}
+
 async function getReview(id){
 
   return await reviewSchema.find(id);
 
 }
 
-module.exports = {createReview, getAllReviews, getReview};
+module.exports = {createReview, getAllReviews, getReview, getReviewsForPlayer};
