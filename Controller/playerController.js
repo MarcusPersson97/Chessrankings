@@ -133,7 +133,7 @@ async function getPlayers(req, res){
     }
 
     try {
-        const updatedPlayer = await playerModel.findByIdAndUpdate(
+        const updatedPlayer = await playerModel.updatePlayer(
             id,
             req.body,
             {

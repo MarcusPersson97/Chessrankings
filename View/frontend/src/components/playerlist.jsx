@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PlayerRow from "./playerrow";
 
 function PlayerList({players, loading, error, fetchPlayers}) {
+
     
     return (
     <div>

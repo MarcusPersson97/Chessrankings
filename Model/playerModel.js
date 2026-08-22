@@ -32,12 +32,20 @@ async function deletePlayer(id){
 
 }
 
-async function updatePlayer(id){
-
-    
 
 
-}
+async function updatePlayer(id, updates) {
+
+    return await playerSchema.findByIdAndUpdate(
+        id,
+        updates,
+        {
+            new: true,
+            runValidators: true
+        }
+    );
+}    
+
 
 async function getGamesFromId(id){
 
